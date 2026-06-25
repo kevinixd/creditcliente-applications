@@ -1,5 +1,7 @@
 # Build stage
-FROM maven:3.9.2-eclipse-temurin-21 AS builder
+FROM eclipse-temurin:21-jdk-jammy AS builder
+
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
